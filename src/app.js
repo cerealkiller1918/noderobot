@@ -13,9 +13,7 @@ var index = require('./routes/index');
 
 
 var app = express();
-var FSWebcam = nodeWebCam.FSWebcam;
-var opts = {};
-var cam = new FSWebcam(opts);
+
 
 
 app.set('views', viewPath);
@@ -26,7 +24,9 @@ app.set('view engine', 'pug');
 app.use('/',index);
 app.use('/test', routes.get('/', function (req,res,next){
     var image = "";
-
+    var FSWebcam = nodeWebCam.FSWebcam;
+    var opts = {};
+    var cam = new FSWebcam(opts);
 
    res.send(image)
 }));
