@@ -27,8 +27,8 @@ app.use('/test', routes.get('/', function (req,res,next){
     var FSWebcam = nodeWebCam.FSWebcam;
     var opts = {};
     var cam = new FSWebcam(opts);
-
-   res.send(image)
+    image+= cam.createShot();
+   res.send("<img src= '"+ image+"'>")
 }));
 
 
